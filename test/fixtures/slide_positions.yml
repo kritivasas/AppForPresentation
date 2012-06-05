@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  step: 1
+  last_update_ip: MyString
+
+two:
+  step: 1
+  last_update_ip: MyString
