@@ -10,11 +10,11 @@
   function auto_reload()
   {
     $.ajax({ url:'<%=get_slide_url%>'});
-    setTimeout('auto_reload()',100);
+    setTimeout('auto_reload()',500);
   }
 </script>
 </head>
-<body onload="setTimeout('auto_reload()',100);">
+<body onload="setTimeout('auto_reload()',500);">
 
 <%= yield %>
 
