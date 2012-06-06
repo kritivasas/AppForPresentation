@@ -9,7 +9,7 @@
   var timer = null;
   function auto_reload()
   {
-    $.ajax({ url:'http://127.0.0.1:5555/get_slide'});
+    $.ajax({ url:'<%=get_slide_url%>'});
     setTimeout('auto_reload()',100);
   }
 </script>
