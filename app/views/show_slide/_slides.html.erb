@@ -88,11 +88,14 @@
         
     -->
     <link href="assets/impress-demo.css" rel="stylesheet" />
+    <%= stylesheet_link_tag 'impress-demo.css' %>
     <%#= javascript_include_tag 'application', :cache => true %>
     <%#= javascript_include_tag "jquery-1.6.3.min" %>
    
     <link rel="shortcut icon" href="favicon.png" />
+    <%= image_tag "favicon.png"%>
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <%= image_tag "apple-touch-icon.png"%>
 </head>
 
 <!--
@@ -359,7 +362,7 @@ if ("ontouchstart" in document.documentElement) {
     Of course you can wrap it in any kind of "DOM ready" event, but I was too lazy to do so ;)
     
 -->
-<script src="assets/impress.js"></script>
+<%= javascript_include_tag 'impress.js' %>
 <script>impress().init();</script>
 
 <!--
