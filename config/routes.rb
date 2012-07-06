@@ -1,5 +1,25 @@
 AppForPresentation::Application.routes.draw do
-  # The priority is based upon order of creation:
+
+  # resources :presentations do
+  #     resources :slides
+  # end
+
+
+  match   "/presentations/:presentation_uid/slides"               =>  "slides#index",            :via => :get,    :as => "presentation_slides"
+  match   "/presentations/:presentation_uid/slides"               =>  "slides#create",           :via => :post
+  match   "/presentations/:presentation_uid/slides/new"           =>  "slides#new",              :via => :get,    :as => "new_presentation_slide"
+  match   "/presentations/:presentation_uid/slides/:id/edit"      =>  "slides#edit",             :via => :get,    :as => "edit_presentation_slide"
+  match   "/presentations/:presentation_uid/slides/:id"           =>  "slides#show",             :via => :get,    :as => "presentation_slide"
+  match   "/presentations/:presentation_uid/slides/:id"           =>  "slides#update",           :via => :put
+  match   "/presentations/:presentation_uid/slides/:id"           =>  "slides#destroy",          :via => :delete
+  match   "/presentations"                                        =>  "presentations#index",     :via => :get 
+  match   "/presentations"                                        =>  "presentations#create",    :via => :post
+  match   "/presentations/new"                                    =>  "presentations#new",       :via => :new,    :as => "new_presentation"
+  match   "/presentations/:uid/edit"                              =>  "presentations#edit",      :via => :edit,   :as => "edit_presentation"
+  match   "/presentations/:uid"                                   =>  "presentations#show",      :via => :get,    :as => "presentation" 
+  match   "/presentations/:uid"                                   =>  "presentations#update",    :via => :put
+  match   "/presentations/:uid"                                   =>  "presentations#destroy",   :via => :delete
+# The priority is based upon order of creation:
   # first created -> highest priority.
 
   # Sample of regular route:
