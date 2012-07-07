@@ -3,11 +3,16 @@
 <head>
   <title>AppForPresentation</title>
   <script type="text/javascript">
-  <% if ( @presentation != nil ) %>
-    window.presentation_uid = "<%= @presentation.uid %>"
-  <% else %>
-    window.presentation_uid = " "
-  <% end %>
+    <% if ( @presentation != nil ) %>
+      window.presentation_uid = "<%= @presentation.uid %>"
+    <% else %>
+      window.presentation_uid = " "
+    <% end %>
+  </script>
+  <script type = "text/stylesheet">
+    .rest_in_place {
+      background-color: #FFFFE0;
+    }
   </script>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
