@@ -1,0 +1,23 @@
+<%= javascript_include_tag "application-ce8edfd9074c62c9f2def44d707d5586.js" %> 
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Uid:</b>
+  <%= @presentation.uid %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @presentation.name %>
+</p>
+<h2>See and edit slides</h2>
+<%=link_to "Preview", show_ppt_path(@presentation.uid), :target => "_blank"%>
+<p>
+  Click on attributes to edit them
+</p>
+<%= render @presentation.slides %>
+
+<h2>Add a slide:</h2>
+<%= render :partial => "slides/form" %>
+<%= link_to 'Edit', edit_presentation_path(@presentation) %> |
+<%= link_to 'Back', presentations_path %>

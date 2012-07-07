@@ -12,9 +12,10 @@ AppForPresentation::Application.routes.draw do
   match   "/presentations/:presentation_uid/slides/:id"           =>  "slides#show",             :via => :get,    :as => "presentation_slide"
   match   "/presentations/:presentation_uid/slides/:id"           =>  "slides#update",           :via => :put
   match   "/presentations/:presentation_uid/slides/:id"           =>  "slides#destroy",          :via => :delete
+  match   "/presentations/:presentation_uid/show_ppt"             =>  "presentations#show_ppt",  :via => :get,    :as => "show_ppt"
   match   "/presentations"                                        =>  "presentations#index",     :via => :get 
   match   "/presentations"                                        =>  "presentations#create",    :via => :post
-  match   "/presentations/new"                                    =>  "presentations#new",       :via => :new,    :as => "new_presentation"
+  match   "/presentations_new"                                    =>  "presentations#new",       :via => :get,    :as => "new_presentation"
   match   "/presentations/:uid/edit"                              =>  "presentations#edit",      :via => :edit,   :as => "edit_presentation"
   match   "/presentations/:uid"                                   =>  "presentations#show",      :via => :get,    :as => "presentation" 
   match   "/presentations/:uid"                                   =>  "presentations#update",    :via => :put
@@ -25,6 +26,7 @@ AppForPresentation::Application.routes.draw do
   # Sample of regular route:
   match 'update_slide/:step' => 'show_slide#update_slide'
   match 'get_slide' => 'show_slide#get_slide'
+  match '/show_slide/index' => 'show_slide#index'
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:
@@ -69,7 +71,7 @@ AppForPresentation::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'show_slide#index'
+  root :to => 'show_slide#index_temp'
 
   # See how all your routes lay out with "rake routes"
 

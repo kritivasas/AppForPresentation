@@ -552,9 +552,15 @@
         // `prev` API function goes to previous step (in document order)
         var prev = function () {
             var prev = steps.indexOf( activeStep ) - 1;
-            window.$.ajax({
-              url: "/update_slide/"+prev,
-            });
+            if( window.presentation_uid ) {
+              window.$.ajax({
+                url: "/update_slide/"+prev+"?presentation_uid="+window.presentation_uid,
+              });
+            } else {
+              window.$.ajax({
+                url: "/update_slide/"+prev,
+              });
+            }
             prev = prev >= 0 ? steps[ prev ] : steps[ steps.length-1 ];
             
             return goto(prev);
@@ -563,9 +569,15 @@
         // `next` API function goes to next step (in document order)
         var next = function () {
             var next = steps.indexOf( activeStep ) + 1;
-            window.$.ajax({
-              url: "/update_slide/"+next,
-            });
+            if( window.presentation_uid ) {
+              window.$.ajax({
+                url: "/update_slide/"+next+"?presentation_uid="+window.presentation_uid,
+              });
+            } else {
+              window.$.ajax({
+                url: "/update_slide/"+next,
+              });
+            }
             next = next < steps.length ? steps[ next ] : steps[ 0 ];
             return goto(next);
         };

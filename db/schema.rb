@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120705192818) do
+ActiveRecord::Schema.define(:version => 20120706223259) do
 
   create_table "presentations", :force => true do |t|
     t.string   "uid"
@@ -25,14 +25,23 @@ ActiveRecord::Schema.define(:version => 20120705192818) do
     t.string   "last_update_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "presentation_uid"
   end
 
   create_table "slides", :force => true do |t|
     t.integer  "presentation_id"
     t.text     "html_content"
-    t.text     "effects"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
+    t.string   "slide_class"
+    t.integer  "position_x"
+    t.integer  "position_y"
+    t.integer  "position_z"
+    t.integer  "rotation_x"
+    t.integer  "rotation_y"
+    t.integer  "rotation_z"
+    t.integer  "scale"
   end
 
   add_index "slides", ["presentation_id"], :name => "index_slides_on_presentation_id"

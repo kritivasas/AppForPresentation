@@ -1,0 +1,82 @@
+<center>
+<div style="background-color:#eee;width:80%;text-align:left;padding-left:1px;" >
+  <p>
+  <div style="background-color:#ddd;margin-left:6px;margin-right:6px;">
+  <%= '<div id=' %>"
+    <span class="rest-in-place" 
+      data-url="/presentations/<%=slide.presentation.uid%>/slides/<%=slide.id%>" 
+      data-object="slide" 
+      data-attribute="name"
+    >
+      <%= slide.name %>
+    </span>" <%= raw( 'class=')%>"
+    <span class="rest-in-place" 
+      data-url="/presentations/<%=slide.presentation.uid%>/slides/<%=slide.id%>" 
+      data-object="slide" 
+      data-attribute="slide_class"
+    >
+      <%= slide.slide_class %>
+    </span>" <%= raw( 'data-x=')%>"
+    <span class="rest-in-place" 
+      data-url="/presentations/<%=slide.presentation.uid%>/slides/<%=slide.id%>" 
+      data-object="slide" 
+      data-attribute="position_x"
+    >
+      <%= slide.position_x %>
+    </span>" <%= raw( 'data-y=')%>"
+    <span class="rest-in-place" 
+      data-url="/presentations/<%=slide.presentation.uid%>/slides/<%=slide.id%>" 
+      data-object="slide" 
+      data-attribute="position_y"
+    >
+      <%= slide.position_y %>
+    </span>" <%= raw( 'data-z=')%>"
+    <span class="rest-in-place" 
+      data-url="/presentations/<%=slide.presentation.uid%>/slides/<%=slide.id%>" 
+      data-object="slide" 
+      data-attribute="position_z"
+    >
+      <%= slide.position_z %>
+    </span>" <%= raw( 'data-rotate=')%>"
+    <span class="rest-in-place" 
+      data-url="/presentations/<%=slide.presentation.uid%>/slides/<%=slide.id%>" 
+      data-object="slide" 
+      data-attribute="rotation_z"
+    >
+      <%= slide.rotation_z %>
+    </span>" <%= raw( 'data-rotate-x=')%>"
+    <span class="rest-in-place" 
+      data-url="/presentations/<%=slide.presentation.uid%>/slides/<%=slide.id%>" 
+      data-object="slide" 
+      data-attribute="rotation_x"
+    >
+      <%= slide.rotation_x %>
+    </span>" <%= raw( 'data-rotate-y=')%>"
+    <span class="rest-in-place" 
+      data-url="/presentations/<%=slide.presentation.uid%>/slides/<%=slide.id%>" 
+      data-object="slide" 
+      data-attribute="rotation_y"
+    >
+      <%= slide.rotation_y %>
+    </span>" <%= raw( 'data-scale=')%>"
+    <span class="rest-in-place" 
+      data-url="/presentations/<%=slide.presentation.uid%>/slides/<%=slide.id%>" 
+      data-object="slide" 
+      data-attribute="scale"
+    >
+      <%= slide.scale %>
+    </span>" <%= raw( '>')%>
+  </div>
+    <span class="rest-in-place" 
+      data-url="/presentations/<%=slide.presentation.uid%>/slides/<%=slide.id%>" 
+      data-object="slide" 
+      data-attribute="html_content"
+    >
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= raw(slide.html_content) %>
+    </span>
+  <div style="background-color:#ddd;margin-left:6px;margin-right:6px;">
+    <%='</div>'%>
+  </div>
+  </p>
+</div>
+</center>

@@ -1,1 +1,1 @@
-impress("impress").goto_given(<%= @step %>);
+impress("impress").goto_given(<%= @step==0 ? 1 : @step %>);

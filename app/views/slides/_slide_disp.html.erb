@@ -1,0 +1,14 @@
+<div id="<%= slide.name %>" 
+  class="<%= slide.slide_class %>" 
+  data-x="<%= slide.position_x %>" 
+  data-y="<%= slide.position_y %>"
+  data-z="<%= slide.position_z %>"
+  data-rotate="<%= slide.rotation_z %>"
+  data-rotate-x="<%= slide.rotation_x %>"
+  data-rotate-y="<%= slide.rotation_y %>"
+  data-scale="<%= slide.scale %>"
+>
+  <q>
+    <%= raw(slide.html_content) %>
+  </q>
+</div>
