@@ -2,9 +2,9 @@ class PresentationsController < ApplicationController
   layout "presentation.rb"
   # GET /presentations
   # GET /presentations.json
-  def index
-    render :text => "You should not enter in the world you dont know of!!"
-  end
+#  def index
+#    render :text => "You should not enter in the world you dont know of!!"
+#  end
 
   # GET /presentations/1
   # GET /presentations/1.json
