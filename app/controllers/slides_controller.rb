@@ -44,6 +44,7 @@ class SlidesController < ApplicationController
     last_slide_x  = (@presentation.slides.last) ? @presentation.slides.last.position_x : 0
     @slide        = @presentation.slides.create(params[:slide])
     @slide.position_x = last_slide_x + 1000
+    @slide.name = "#{@slide.name}_#{@slide.id}"
     @slide.save!
     redirect_to presentation_path(@presentation.uid)
   end
