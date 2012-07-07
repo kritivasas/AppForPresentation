@@ -4,7 +4,7 @@
   <title>AppForPresentation</title>
   <script type="text/javascript">
   <% if ( @presentation != nil ) %>
-    window.presentation_uid = <%= @presentation.uid %>
+    window.presentation_uid = "<%= @presentation.uid %>"
   <% else %>
     window.presentation_uid = " "
   <% end %>
