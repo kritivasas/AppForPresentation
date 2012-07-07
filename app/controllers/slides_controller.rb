@@ -41,7 +41,9 @@ class SlidesController < ApplicationController
   # POST /slides.json
   def create
     @presentation = Presentation.find_by_uid(params[:presentation_uid])
+    last_slide_x  = (@presentation.slides.last) ? @presentation.slides.last.position_x : 0
     @slide        = @presentation.slides.create(params[:slide])
+    @slide.position_x = last_slide_x + 1000
     redirect_to presentation_path(@presentation.uid)
   end
 
