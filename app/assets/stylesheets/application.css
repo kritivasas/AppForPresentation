@@ -5,4 +5,7 @@
  *= require_self
  *= require_tree . 
 */
+.rest_in_place {
+  background: #FFFFE0;
+}
 
