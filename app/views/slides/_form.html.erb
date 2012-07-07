@@ -1,3 +1,4 @@
+<% last_slide = @presentation.slides.last %>
 <%= form_for @presentation.slides.build , :as => :slide, :url => "/presentations/#{@presentation.uid}/slides",:method => :post do |f| %>
   <!-- <%# if @slide.errors.any? %>
     <div id="error_explanation">
@@ -17,7 +18,7 @@
   </div>
   <div class="field">
     <%= f.label :position_x %><br />
-    <%= f.text_field :position_x, :value => "#{@presentation.slides.last.position_x + 1000}" %>
+    <%= f.text_field :position_x, :value => "#{last_slides.position_x + 1000}" %>
   </div>
   <div class="field">
     <%= f.label :position_y %><br />
