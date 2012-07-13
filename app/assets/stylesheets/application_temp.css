@@ -1,0 +1,60 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+*/
+.rest-in-place {
+  background-color: #FFFFE0;
+}
+
+.field {
+  padding: 8px;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  background-color: #eaffea;
+  margin-top: 3px;
+  margin-left: 1.7%;
+  width: 22%;
+  float:left;
+}
+
+.field_act {
+  padding: 8px;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  background-color: #eaffea;
+  margin-top: 3px;
+  margin-left: 1.5%;
+  width: 98%;
+  float:left;
+}
+
+.form_content {
+  display:inline;
+}
+
+.show_a_slide {
+  background-color: #eee;
+  padding: 10px;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  margin-top:4px;
+}
+
+.content_slide {
+  background-color: #ddd;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  text-align:left;
+  padding:5px;
+}
+
+.make_presentation {
+  width:90%;
+  margin:auto;
+}
+
+.actions {
+  float:left;
+}

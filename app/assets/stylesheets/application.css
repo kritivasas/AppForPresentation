@@ -5,7 +5,7 @@
  *= require_self
  *= require_tree . 
 */
-.rest_in_place {
-  background: #FFFFE0;
+.rest-in-place {
+  background-color: #FFFFE0;
 }
 
