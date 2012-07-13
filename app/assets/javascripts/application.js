@@ -8,4 +8,4 @@
 //= require jquery_ujs
 //= require jquery-1.7.1.min 
 //= require impress 
-//= require rest_in_place 
+//rest_in_place 

@@ -16,7 +16,7 @@ AppForPresentation::Application.routes.draw do
   match   "/presentations"                                        =>  "presentations#index",     :via => :get 
   match   "/presentations"                                        =>  "presentations#create",    :via => :post
   match   "/presentations_new"                                    =>  "presentations#new",       :via => :get,    :as => "new_presentation"
-  match   "/presentations/:uid/edit"                              =>  "presentations#edit",      :via => :edit,   :as => "edit_presentation"
+  match   "/presentations/:uid/edit"                              =>  "presentations#edit",      :via => :put,    :as => "edit_presentation"
   match   "/presentations/:uid"                                   =>  "presentations#show",      :via => :get,    :as => "presentation" 
   match   "/presentations/:uid"                                   =>  "presentations#update",    :via => :put
   match   "/presentations/:uid"                                   =>  "presentations#destroy",   :via => :delete

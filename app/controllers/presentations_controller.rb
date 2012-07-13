@@ -37,6 +37,9 @@ class PresentationsController < ApplicationController
   # GET /presentations/1/edit
   def edit
     @presentation = Presentation.find_by_uid(params[:uid])
+    respond_to do |format|
+      format.json { render :nothing => true }
+    end
   end
 
   # POST /presentations
@@ -58,7 +61,7 @@ class PresentationsController < ApplicationController
   # PUT /presentations/1
   # PUT /presentations/1.json
   def update
-    @presentation = Presentation.find_by_uid(params[:id])
+    @presentation = Presentation.find_by_uid(params[:uid])
 
     respond_to do |format|
       if @presentation.update_attributes(params[:presentation])

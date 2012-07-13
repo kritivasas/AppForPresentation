@@ -1,9 +1,9 @@
-<%=javascript_include_tag "rest_in_place"%>
+<%#=javascript_include_tag "rest_in_place"%>
 <center>
 <div class="show_a_slide" >
   <p>
   <div class="content_slide">
-  <%= raw('<div id=') %>"
+  <%= '<div id=' %>"
     <span class="rest-in-place" 
       data-url="/presentations/<%=slide.presentation.uid%>/slides/<%=slide.id%>" 
       data-object="slide" 
