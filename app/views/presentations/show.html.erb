@@ -22,8 +22,9 @@
 <p>
   Click on attributes(yellow spots) to edit them
 </p>
-<%= render @presentation.slides %>
-
+<div id="class_display">
+  <%= render @presentation.slides %>
+</div>
 <h2>Add a slide:</h2>
 <%= render :partial => "slides/form" %>
 <%#= link_to 'Edit', edit_presentation_path(@presentation) %> 

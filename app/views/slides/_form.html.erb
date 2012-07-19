@@ -1,5 +1,5 @@
 <% last_slide = @presentation.slides.last %>
-<%= form_for @presentation.slides.build , :as => :slide, :url => "/presentations/#{@presentation.uid}/slides",:method => :post do |f| %>
+<%= form_for @presentation.slides.build , :remote => true , :as => :slide, :url => "/presentations/#{@presentation.uid}/slides",:method => :post do |f| %>
   <!-- <%# if @slide.errors.any? %>
     <div id="error_explanation">
       <h2><%#= pluralize(@slide.errors.count, "error") %> prohibited this slide from being saved:</h2>
@@ -12,50 +12,22 @@
     </div>
     <%# end %>-->
 <div class="form_content">
-  <div class="field">
-    <%= f.label :name %>:<br />
-    <%= f.text_field :name, :value => "name" %>
-  </div>
-  <div class="field">
-    <%= f.label :position_x %>:<br />
-    <%= f.text_field :position_x, :value => "#{(last_slide)?(last_slide.position_x + 1000):(0)}" %>
-  </div>
-  <div class="field">
-    <%= f.label :position_y %>:<br />
-    <%= f.text_field :position_y, :value => '0' %>
-  </div>
-  <div class="field">
-    <%= f.label :position_z %>:<br />
-    <%= f.text_field :position_z, :value => '0' %>
-  </div>
-  <div class="field">
-    <%= f.label :rotation_x %>:<br />
-    <%= f.text_field :rotation_x, :value => '0' %> <br/>(in degrees and works well for safari only)
-  </div>
-  <div class="field">
-    <%= f.label :rotation_y %>:<br />
-    <%= f.text_field :rotation_y, :value => '0' %> <br/>(in degrees and works well for safari only)
-  </div>
-  <div class="field">
-    <%= f.label :rotation_z %>:<br />
-    <%= f.text_field :rotation_z, :value => '0' %> <br/>(in degrees)
-  </div>
-  <div class="field">
-    <%= f.label :scale %>:<br />
-    <%= f.text_field :scale, :value => '1' %> <br/>(prefer  0 - 10000)
-  </div>
+    <%= f.hidden_field :name, :value => "name" %>
+    <%= f.hidden_field :position_x, :value => "#{(last_slide)?(last_slide.position_x + 1000):(0)}" %>
+    <%= f.hidden_field :position_y, :value => '0' %>
+    <%= f.hidden_field :position_z, :value => '0' %>
+    <%= f.hidden_field :rotation_x, :value => '0' %>
+    <%= f.hidden_field :rotation_y, :value => '0' %>
+    <%= f.hidden_field :rotation_z, :value => '0' %>
+    <%= f.hidden_field :scale, :value => '1' %>
   <div class="field_act">
     <%= f.label :slide_class %>:<br />
     <%= f.select :slide_class, [["simple slide","step slide"],["awesome","step"]] %>
   </div>
-
-  <div class="field_act">
-    <%= f.label :html_content %>:<br />
-    <%= f.text_area :html_content, :cols => 100, :rows => 3 %>
-  </div>
+    <%= f.hidden_field :html_content, :value => "slide inner content" %>
   <br/>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Add another slide" %>
   </div>
 </div>
 <% end %>

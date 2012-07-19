@@ -46,7 +46,11 @@ class SlidesController < ApplicationController
     @slide.position_x = last_slide_x + 1000
     @slide.name = "#{@slide.name}_#{@slide.id}"
     @slide.save!
-    redirect_to presentation_path(@presentation.uid)
+    # redirect_to presentation_path(@presentation.uid)
+    respond_to do |format|
+      format.js
+      format.json
+    end
   end
 
   # PUT /slides/1

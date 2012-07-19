@@ -6,6 +6,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery-1.7.1.min 
 //= require impress 
 //rest_in_place 
+//require jquery-1.7.1.min 

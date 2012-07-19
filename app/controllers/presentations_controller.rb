@@ -1,5 +1,5 @@
 class PresentationsController < ApplicationController
-  layout "presentation.rb"
+  layout 'presentation'
   # GET /presentations
   # GET /presentations.json
 #  def index
