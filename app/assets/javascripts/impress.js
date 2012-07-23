@@ -554,7 +554,7 @@
             var prev = steps.indexOf( activeStep ) - 1;
             if( window.presentation_uid ) {
               window.$.ajax({
-                url: "/update_slide/"+prev+"?presentation_uid="+window.presentation_uid,
+                url: "/update_slide/"+prev+"?presentation_uid="+window.presentation_uid
               });
             } else {
               window.$.ajax({
@@ -571,7 +571,7 @@
             var next = steps.indexOf( activeStep ) + 1;
             if( window.presentation_uid ) {
               window.$.ajax({
-                url: "/update_slide/"+next+"?presentation_uid="+window.presentation_uid,
+                url: "/update_slide/"+next+"?presentation_uid="+window.presentation_uid
               });
             } else {
               window.$.ajax({

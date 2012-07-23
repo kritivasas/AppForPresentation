@@ -17,6 +17,9 @@
       <%= @presentation.name %>
     </span>
 </p>
+<h2>Add a slide:</h2>
+<%= render :partial => "slides/form" %><br/>
+
 <h2>See and edit slides</h2>
 <%=link_to "Preview", show_ppt_path(@presentation.uid), :target => "_blank"%>
 <p>
@@ -25,8 +28,4 @@
 <div id="class_display">
   <%= render @presentation.slides %>
 </div>
-<h2>Add a slide:</h2>
-<%= render :partial => "slides/form" %>
-<%#= link_to 'Edit', edit_presentation_path(@presentation) %> 
-<%#= link_to 'Back', presentations_path %>
 </div>

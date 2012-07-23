@@ -34,6 +34,7 @@ class PresentationsController < ApplicationController
       format.html { render :layout => "application" }
     end
   end
+
   # GET /presentations/1/edit
   def edit
     @presentation = Presentation.find_by_uid(params[:uid])

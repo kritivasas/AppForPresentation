@@ -4,7 +4,6 @@ AppForPresentation::Application.routes.draw do
   #     resources :slides
   # end
 
-
   match   "/presentations/:presentation_uid/slides"               =>  "slides#index",            :via => :get,    :as => "presentation_slides"
   match   "/presentations/:presentation_uid/slides"               =>  "slides#create",           :via => :post
   match   "/presentations/:presentation_uid/slides/new"           =>  "slides#new",              :via => :get,    :as => "new_presentation_slide"

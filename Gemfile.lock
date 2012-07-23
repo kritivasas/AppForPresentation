@@ -84,6 +84,8 @@ GEM
       json (~> 1.4)
     rest_in_place (2.0.2)
       rails (>= 3.1)
+    routing-filter (0.3.1)
+      actionpack
     sass (3.1.20)
     sass-rails (3.1.4)
       actionpack (~> 3.1.0)
@@ -117,6 +119,7 @@ DEPENDENCIES
   jquery-rails
   rails (= 3.1.1)
   rest_in_place
+  routing-filter
   sass-rails (<= 3.1.4)
   sqlite3
   turn

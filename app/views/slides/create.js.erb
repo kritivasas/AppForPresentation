@@ -1,1 +1,2 @@
-$('#class_display').append("<%= escape_javascript render "slides/slide.html.erb", :slide => @slide %>");
+$('#class_display').append("<%= raw(escape_javascript render "slides/slide.html.erb", :slide => @slide) %>");
+$('.content_slide_<%=@slide.id%> .rest-in-place').restInPlace();
