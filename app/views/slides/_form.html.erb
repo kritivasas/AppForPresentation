@@ -1,5 +1,5 @@
-<% last_slide = @presentation.slides.last %>
-<%= form_for @presentation.slides.build , :remote => true , :as => :slide, :url => "/presentations/#{@presentation.uid}/slides",:method => :post do |f| %>
+<% last_slide = @presentation_disp.slides.last %>
+<%= form_for @presentation_disp.slides.build , :remote => true , :as => :slide, :url => "/presentations/#{@presentation_disp.uid}/slides",:method => :post do |f| %>
   <!-- <%# if @slide.errors.any? %>
     <div id="error_explanation">
       <h2><%#= pluralize(@slide.errors.count, "error") %> prohibited this slide from being saved:</h2>
@@ -22,7 +22,7 @@
     <%= f.hidden_field :scale, :value => '1' %>
   <div class="field_act">
     <%= f.label :slide_class %>:<br />
-    <%= f.select :slide_class, [["simple slide","step slide"],["awesome","step"]] %>
+    <%= f.select :slide_class, [["awesome","step"], ["simple slide","step slide"]] %>
   </div>
     <%= f.hidden_field :html_content, :value => "slide inner content" %>
   <br/>

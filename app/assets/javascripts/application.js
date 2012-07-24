@@ -8,4 +8,17 @@
 //= require jquery_ujs
 //= require impress 
 //rest_in_place 
-//require jquery-1.7.1.min 
+//require jquery-1.7.1.min
+  function update_prev(uid) {
+    $.post("/update_slide_prev", { presentation_uid: uid },
+       function(data) {
+       }
+    );
+  }
+  function update_next(uid) {
+    $.post("/update_slide_next", { presentation_uid: uid },
+       function(data) {
+       }
+    );
+  }
+

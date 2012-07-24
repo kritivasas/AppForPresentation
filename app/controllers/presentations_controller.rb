@@ -9,7 +9,7 @@ class PresentationsController < ApplicationController
   # GET /presentations/1
   # GET /presentations/1.json
   def show
-    @presentation = Presentation.find_by_uid(params[:uid])
+    @presentation_disp = Presentation.find_by_uid(params[:uid])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,6 +26,10 @@ class PresentationsController < ApplicationController
       format.html # new.html.erb
       format.json { render json: @presentation }
     end
+  end
+
+  def controller
+    @uid = params[:uid]
   end
 
   def show_ppt
@@ -47,7 +51,7 @@ class PresentationsController < ApplicationController
   # POST /presentations.json
   def create
     @presentation = Presentation.new(params[:presentation])
-
+    Presentation.logger.debug "ashdgkasdasdkjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj"
     respond_to do |format|
       if @presentation.save
         format.html { redirect_to "/presentations/#{@presentation.uid}", notice: 'Presentation was successfully created. Please note down your uid for future' }
@@ -55,6 +59,19 @@ class PresentationsController < ApplicationController
       else
         format.html { render action: "new" }
         format.json { render json: @presentation.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def find
+    @presentation = Presentation.find_by_uid( params[:presentation][:uid] )
+
+    respond_to do |format|
+      if @presentation
+        format.html { redirect_to "/presentations/#{@presentation.uid}" }
+        format.json { render json: @presentation, status: :created, location: @presentation }
+      else
+        render :text => "404"
       end
     end
   end

@@ -1,29 +1,30 @@
 <div class="make_presentation">
 <p id="notice"><%= notice %></p>
-
+<b>Click on attributes(yellow spots) to edit them</b>
 <p>
   <b>Uid:</b>
-  <%= @presentation.uid %>
+  <%= @presentation_disp.uid %>
 </p>
 
 <p>
   <b>Name:</b>
      <span class="rest-in-place" 
-      data-url="/presentations/<%=@presentation.uid%>" 
+      data-url="/presentations/<%=@presentation_disp.uid%>" 
       data-object="presentation" 
       data-attribute="name"
       style="backround-color:#FFFFCC"
     >
-      <%= @presentation.name %>
+      <%= @presentation_disp.name %>
     </span>
 </p>
 <h2>Add a slide:</h2>
+<% @presentation = Presentation.find(@presentation_disp.id) %>
 <%= render :partial => "slides/form" %><br/>
 
 <h2>See and edit slides</h2>
-<%=link_to "Preview", show_ppt_path(@presentation.uid), :target => "_blank"%>
+<%=link_to "Preview", show_ppt_path(@presentation_disp.uid), :target => "_blank"%><br/>
+<%=link_to "Controll", controll_presentation_path(@presentation_disp.uid), :target => "_blank"%>
 <p>
-  Click on attributes(yellow spots) to edit them
 </p>
 <div id="class_display">
   <%= render @presentation.slides %>

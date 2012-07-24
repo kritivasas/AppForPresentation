@@ -4,26 +4,30 @@ AppForPresentation::Application.routes.draw do
   #     resources :slides
   # end
 
-  match   "/presentations/:presentation_uid/slides"               =>  "slides#index",            :via => :get,    :as => "presentation_slides"
-  match   "/presentations/:presentation_uid/slides"               =>  "slides#create",           :via => :post
-  match   "/presentations/:presentation_uid/slides/new"           =>  "slides#new",              :via => :get,    :as => "new_presentation_slide"
-  match   "/presentations/:presentation_uid/slides/:id/edit"      =>  "slides#edit",             :via => :get,    :as => "edit_presentation_slide"
-  match   "/presentations/:presentation_uid/slides/:id"           =>  "slides#show",             :via => :get,    :as => "presentation_slide"
-  match   "/presentations/:presentation_uid/slides/:id"           =>  "slides#update",           :via => :put
-  match   "/presentations/:presentation_uid/slides/:id"           =>  "slides#destroy",          :via => :delete
-  match   "/presentations/:presentation_uid/show_ppt"             =>  "presentations#show_ppt",  :via => :get,    :as => "show_ppt"
-  match   "/presentations"                                        =>  "presentations#index",     :via => :get 
-  match   "/presentations"                                        =>  "presentations#create",    :via => :post
-  match   "/presentations_new"                                    =>  "presentations#new",       :via => :get,    :as => "new_presentation"
-  match   "/presentations/:uid/edit"                              =>  "presentations#edit",      :via => :put,    :as => "edit_presentation"
-  match   "/presentations/:uid"                                   =>  "presentations#show",      :via => :get,    :as => "presentation" 
-  match   "/presentations/:uid"                                   =>  "presentations#update",    :via => :put
-  match   "/presentations/:uid"                                   =>  "presentations#destroy",   :via => :delete
+  match   "/presentations/:presentation_uid/slides"               =>  "slides#index",             :via => :get,    :as => "presentation_slides"
+  match   "/presentations/:presentation_uid/slides"               =>  "slides#create",            :via => :post
+  match   "/presentations/:presentation_uid/slides/new"           =>  "slides#new",               :via => :get,    :as => "new_presentation_slide"
+  match   "/presentations/:presentation_uid/slides/:id/edit"      =>  "slides#edit",              :via => :get,    :as => "edit_presentation_slide"
+  match   "/presentations/:presentation_uid/slides/:id"           =>  "slides#show",              :via => :get,    :as => "presentation_slide"
+  match   "/presentations/:presentation_uid/slides/:id"           =>  "slides#update",            :via => :put
+  match   "/presentations/:presentation_uid/slides/:id"           =>  "slides#destroy",           :via => :delete
+  match   "/presentations/:presentation_uid/show_ppt"             =>  "presentations#show_ppt",   :via => :get,    :as => "show_ppt"
+  match   "/presentations"                                        =>  "presentations#index",      :via => :get 
+  match   "/presentations"                                        =>  "presentations#create",     :via => :post
+  match   "/presentations_new"                                    =>  "presentations#new",        :via => :get,    :as => "new_presentation"
+  match   "/presentations_find"                                   =>  "presentations#find",       :via => :post,   :as => "find_presentation"
+  match   "/presentations_controll/:uid"                          =>  "presentations#controller", :via => :get,   :as => "controll_presentation"
+  match   "/presentations/:uid/edit"                              =>  "presentations#edit",       :via => :put,    :as => "edit_presentation"
+  match   "/presentations/:uid"                                   =>  "presentations#show",       :via => :get,    :as => "presentation" 
+  match   "/presentations/:uid"                                   =>  "presentations#update",     :via => :put
+  match   "/presentations/:uid"                                   =>  "presentations#destroy",    :via => :delete
 # The priority is based upon order of creation:
   # first created -> highest priority.
 
   # Sample of regular route:
   match 'update_slide/:step' => 'show_slide#update_slide'
+  match 'update_slide_next' => 'show_slide#update_slide_next', :via => :post
+  match 'update_slide_prev' => 'show_slide#update_slide_prev', :via => :post
   match 'get_slide' => 'show_slide#get_slide'
   match '/show_slide/index' => 'show_slide#index'
   # Keep in mind you can assign values other than :controller and :action
