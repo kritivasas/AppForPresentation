@@ -1,0 +1,18 @@
+<script type="javascript">
+function update_prev(uid) {
+  $.post("/update_slide_prev", { presentation_uid: uid },
+     function(data) {
+     }
+  );
+}
+function update_next(uid) {
+  $.post("/update_slide_next", { presentation_uid: uid },
+     function(data) {
+     }
+  );
+}
+</script>
+<div style="margin-top:10%;text-align:center;">
+  <a href="#" class="button" onclick="update_prev('<%=@uid%>')" >Prev</a>
+  <a href="#" class="button" onclick="update_next('<%=@uid%>')">Next</a>
+</div>
