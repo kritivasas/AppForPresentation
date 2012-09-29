@@ -50,21 +50,30 @@ class PresentationsController < ApplicationController
   # POST /presentations
   # POST /presentations.json
   def create
-    @presentation = Presentation.new(params[:presentation])
-    Presentation.logger.debug "ashdgkasdasdkjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj"
+    @presentation_disp = Presentation.new(params[:presentation])
+    logger.debug @presentation_disp.inspect
     respond_to do |format|
-      if @presentation.save
+      if @presentation_disp.save
         format.html { redirect_to "/presentations/#{@presentation.uid}", notice: 'Presentation was successfully created. Please note down your uid for future' }
-        format.json { render json: @presentation, status: :created, location: @presentation }
+        format.js
+        format.json { render json: @presentation_disp, status: :created, location: @presentation_disp }
       else
         format.html { render action: "new" }
-        format.json { render json: @presentation.errors, status: :unprocessable_entity }
+        format.js
+        format.json { render json: @presentation_disp.errors, status: :unprocessable_entity }
       end
     end
   end
 
+  def index
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
   def find
-    @presentation = Presentation.find_by_uid( params[:presentation][:uid] )
+    @presentation = Presentation.find_by_uid( params[:uid_search] )
 
     respond_to do |format|
       if @presentation

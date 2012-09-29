@@ -95,7 +95,7 @@
    background: #1b435e;
    }
 #preview_frame_div {
-  min-height: 50%;
+  min-height: 200px;
   min-width: 80%;
   position: fixed;
   margin-top: 0px;
@@ -103,7 +103,7 @@
 }
 
 #preview_frame {
-  min-height: 50%;
+  min-height: 200px;
   min-width: 100%;
   margin-top: 0px;
   text-align: center;
@@ -113,13 +113,14 @@
   position: fixed;
   margin-top: -10px;
   z-index: 1000;
-  min-height: 5%;
+  min-height: 10px;
+  margin-top: 10px;
   width: 80%;
   background-color: #DDD;
 }
 
 .slides_editor {
-  padding-top: 35%;
+  padding-top: 255px;
 }
 
 .delete_button {

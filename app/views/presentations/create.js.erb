@@ -1,0 +1,7 @@
+runEffect();
+$('#new_presentation').modal('hide');
+// set effect from select menu value
+$('#content_body').html("<%= raw(escape_javascript render :partial => 'show', :slide => @slide) %>");
+$('.rest-in-place').restInPlace();
+$("#preview_frame")[0].contentDocument.location = "<%= show_ppt_path(@presentation_disp.uid) %>#/overview";
+reverseEffect();

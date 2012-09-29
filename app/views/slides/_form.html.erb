@@ -11,18 +11,20 @@
       </ul>
     </div>
     <%# end %>-->
-<div class="navbar navbar-inverse">
-  <font style="font-size:20px">Add a slide:</font>
-  <%= f.hidden_field :name, :value => "name" %>
-  <%= f.hidden_field :position_x, :value => "#{(last_slide)?(last_slide.position_x + 1000):(0)}" %>
-  <%= f.hidden_field :position_y, :value => '0' %>
-  <%= f.hidden_field :position_z, :value => '0' %>
-  <%= f.hidden_field :rotation_x, :value => '0' %>
-  <%= f.hidden_field :rotation_y, :value => '0' %>
-  <%= f.hidden_field :rotation_z, :value => '0' %>
-  <%= f.hidden_field :scale, :value => '1' %>
-  <%= f.select :slide_class, [["awesome","step"], ["simple slide","step slide"]] %>
-  <%= f.hidden_field :html_content, :value => "slide inner content" %>
-  <%= f.submit "Add another slide", :class => "btn btn-info"%>
+<div class="navbar navbar-inverse" style="margin-top:6px;">
+  <div class="navbar-inner" >
+    <font style="font-size:20px">Add a slide:</font>
+    <%= f.hidden_field :name, :value => "name" %>
+    <%= f.hidden_field :position_x, :value => "#{(last_slide)?(last_slide.position_x + 1000):(0)}" %>
+    <%= f.hidden_field :position_y, :value => '0' %>
+    <%= f.hidden_field :position_z, :value => '0' %>
+    <%= f.hidden_field :rotation_x, :value => '0' %>
+    <%= f.hidden_field :rotation_y, :value => '0' %>
+    <%= f.hidden_field :rotation_z, :value => '0' %>
+    <%= f.hidden_field :scale, :value => '1' %>
+    <%= f.select :slide_class, [["awesome","step"], ["simple slide","step slide"]] %>
+    <%= f.hidden_field :html_content, :value => "slide inner content" %>
+    <%= f.submit "Add another slide", :class => "btn btn-info"%>
+  </div>
 </div>
 <% end %>

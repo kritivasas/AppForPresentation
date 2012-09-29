@@ -6,6 +6,6 @@ class Presentation < ActiveRecord::Base
 private
 
   def add_primary_uid
-    self.uid = UUIDTools::UUID.sha1_create(UUIDTools::UUID.timestamp_create, UUIDTools::UUID.timestamp_create).to_s if self.uid == nil
+    self.uid = Digest::MD5.hexdigest(UUIDTools::UUID.sha1_create(UUIDTools::UUID.timestamp_create, UUIDTools::UUID.timestamp_create).to_s).slice(0..6) if self.uid == nil
   end
 end

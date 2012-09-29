@@ -1074,6 +1074,7 @@ select {
   width: 220px;
   background-color: #ffffff;
   border: 1px solid #cccccc;
+  margin-top: 12px;
 }
 
 select[multiple],

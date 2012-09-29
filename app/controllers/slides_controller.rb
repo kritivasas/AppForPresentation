@@ -76,7 +76,7 @@ class SlidesController < ApplicationController
     @slide.destroy
 
     respond_to do |format|
-      format.js { head :ok }
+      format.js
       format.json { head :ok }
     end
   end

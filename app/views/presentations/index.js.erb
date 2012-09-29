@@ -1,0 +1,5 @@
+runEffect();
+$('#new_presentation').modal('hide');
+// set effect from select menu value
+$('#content_body').html("<%= raw(escape_javascript render :partial => 'index') %>");
+reverseEffect();
