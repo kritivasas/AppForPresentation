@@ -10,7 +10,7 @@ AppForPresentation::Application.routes.draw do
   match   "/presentations/:presentation_uid/slides/:id/edit"      =>  "slides#edit",              :via => :get,    :as => "edit_presentation_slide"
   match   "/presentations/:presentation_uid/slides/:id"           =>  "slides#show",              :via => :get,    :as => "presentation_slide"
   match   "/presentations/:presentation_uid/slides/:id"           =>  "slides#update",            :via => :put
-  match   "/presentations/:presentation_uid/slides/:id"           =>  "slides#destroy",           :via => :delete
+  match   "/presentations/:presentation_uid/slides/:id"           =>  "slides#destroy",           :via => :delete, :as => "delete_slide"
   match   "/presentations/:presentation_uid/show_ppt"             =>  "presentations#show_ppt",   :via => :get,    :as => "show_ppt"
   match   "/presentations"                                        =>  "presentations#index",      :via => :get 
   match   "/presentations"                                        =>  "presentations#create",     :via => :post

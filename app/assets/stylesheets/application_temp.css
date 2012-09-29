@@ -3,6 +3,7 @@
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require_self
+ *= require bootstrap
 */
 .rest-in-place {
   background-color: #FFFFE0;
@@ -25,13 +26,14 @@
   -moz-border-radius: 8px;
   background-color: #eaffea;
   margin-top: 3px;
-  margin-left: 1.5%;
-  width: 98%;
-  float:left;
+  width: 100%;
 }
 
 .form_content {
   display:inline;
+  background-color: #eee;
+  margin-top: 60px;
+  padding: 5px;
 }
 
 .show_a_slide {
@@ -51,7 +53,8 @@
 }
 
 .make_presentation {
-  width:90%;
+  width:80%;
+  text-align: center;
   margin:auto;
 }
 
@@ -91,3 +94,43 @@
    border-top-color: #1b435e;
    background: #1b435e;
    }
+#preview_frame_div {
+  min-height: 50%;
+  min-width: 80%;
+  position: fixed;
+  margin-top: 0px;
+  text-align: center;
+}
+
+#preview_frame {
+  min-height: 50%;
+  min-width: 100%;
+  margin-top: 0px;
+  text-align: center;
+}
+
+#top_bar {
+  position: fixed;
+  margin-top: -10px;
+  z-index: 1000;
+  min-height: 5%;
+  width: 80%;
+  background-color: #DDD;
+}
+
+.slides_editor {
+  padding-top: 35%;
+}
+
+.delete_button {
+ width: 20px;
+ height:20px;
+ display:block;
+ margin-top: -4px;
+ background-image: url('/assets/delete_button.gif');
+ float: right;
+}
+
+.delete_button:hover {
+   background-image: url('/assets/delete_button2.gif');
+}

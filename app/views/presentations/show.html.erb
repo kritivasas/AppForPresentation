@@ -1,32 +1,51 @@
+<script>
+  var delete_slide = function(slide_presentation_uid,slide_id){
+    $.ajax({
+        url: "/presentations/"+ slide_presentation_uid+"/slides/"+slide_id,
+        type: 'DELETE',
+        success: function(result) {
+            $("#slide_"+slide_id).remove();
+        }
+    });
+  }
+</script>
 <div class="make_presentation">
-<p id="notice"><%= notice %></p>
-<b>Click on attributes(yellow spots) to edit them</b>
-<p>
-  <b>Uid:</b>
-  <%= @presentation_disp.uid %>
-</p>
+  <div class="navbar navbar-static-top" style="position:fixed;width:80%;">
+    <div class="navbar-inner">
+      <span style="float:left;">
+      <b>Click on attributes(yellow spots) to edit them</b>
+      </span>
+      <span style="float:right"> <b>Uid:</b> <%= @presentation_disp.uid %> </span>
+      <p>
+        <b>Name:</b>
+          <span class="rest-in-place" 
+            data-url="/presentations/<%=@presentation_disp.uid%>" 
+            data-object="presentation" 
+            data-attribute="name"
+            style="backround-color:#FFFFCC"
+            >
+            <%= @presentation_disp.name %>
+          </span>
+      </p>
+    </div>
+  
+    <div id="preview_frame_div" >
+      <div class="navbar-inner">
+        <iframe id="preview_frame" src="<%= show_ppt_path(@presentation_disp.uid) %>#/overview"></iframe>
+      </div>
+    </div>
+  </div>
+  <div class="slides_editor">
+    <div class="navbar-inner">
 
-<p>
-  <b>Name:</b>
-     <span class="rest-in-place" 
-      data-url="/presentations/<%=@presentation_disp.uid%>" 
-      data-object="presentation" 
-      data-attribute="name"
-      style="backround-color:#FFFFCC"
-    >
-      <%= @presentation_disp.name %>
-    </span>
-</p>
-<h2>Add a slide:</h2>
-<% @presentation = Presentation.find(@presentation_disp.id) %>
-<%= render :partial => "slides/form" %><br/>
-
-<h2>See and edit slides</h2>
-<%=link_to "Preview", show_ppt_path(@presentation_disp.uid), :target => "_blank"%><br/>
-<%=link_to "Controll", controll_presentation_path(@presentation_disp.uid), :target => "_blank"%>
-<p>
-</p>
-<div id="class_display">
-  <%= render @presentation.slides %>
-</div>
+      <% @presentation = Presentation.find(@presentation_disp.id) %>
+      <%= render :partial => "slides/form" %>
+      <%=link_to "Preview", show_ppt_path(@presentation_disp.uid), :target => "_blank"%>
+      <%=link_to "Controll", controll_presentation_path(@presentation_disp.uid), :target => "_blank"%>
+          
+      <div id="class_display">
+        <%= render @presentation.slides %>
+      </div>
+    </div>
+  </div>
 </div>

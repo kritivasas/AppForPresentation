@@ -1,6 +1,8 @@
 <%#=javascript_include_tag "rest_in_place"%>
 <center>
-<div class="show_a_slide" >
+<div class="show_a_slide" id="slide_<%=slide.id%>">
+  <div class="delete_button" onclick="delete_slide('<%=slide.presentation.uid%>',<%=slide.id%>)">
+  </div>
   <p>
   <div class="content_slide_<%=slide.id%>">
   <div class="content_slide">
@@ -94,3 +96,11 @@
   </p>
 </div>
 </center>
+<script type="text/javascript">
+var init_rip_change_bind = function(slide_id){
+  var rip_in_partial = $('#slide_'+ slide_id +'.rest-in-place')
+  rip_in_partial.bind('success.rest-in-place', function(event){
+    alert("Yay it worked! The new value is");
+  });
+}
+</script>

@@ -40,11 +40,11 @@ class SlidesController < ApplicationController
   # POST /slides
   # POST /slides.json
   def create
-    @presentation = Presentation.find_by_uid(params[:presentation_uid])
-    last_slide_x  = (@presentation.slides.last) ? @presentation.slides.last.position_x : 0
-    @slide        = @presentation.slides.create(params[:slide])
+    @presentation     = Presentation.find_by_uid(params[:presentation_uid])
+    last_slide_x      = (@presentation.slides.last) ? @presentation.slides.last.position_x : 0
+    @slide            = @presentation.slides.create(params[:slide])
     @slide.position_x = last_slide_x + 1000
-    @slide.name = "#{@slide.name}_#{@slide.id}"
+    @slide.name       = "#{@slide.name}_#{@slide.id}"
     @slide.save!
     # redirect_to presentation_path(@presentation.uid)
     respond_to do |format|
@@ -57,11 +57,11 @@ class SlidesController < ApplicationController
   # PUT /slides/1.json
   def update
     @slide = Slide.find(params[:id])
-
     respond_to do |format|
       if @slide.update_attributes(params[:slide])
         format.html { redirect_to @slide, notice: 'Slide was successfully updated.' }
         format.json { head :ok }
+        format.js
       else
         format.html { render action: "edit" }
         format.json { render json: @slide.errors, status: :unprocessable_entity }
@@ -76,7 +76,7 @@ class SlidesController < ApplicationController
     @slide.destroy
 
     respond_to do |format|
-      format.html { redirect_to slides_url }
+      format.js { head :ok }
       format.json { head :ok }
     end
   end

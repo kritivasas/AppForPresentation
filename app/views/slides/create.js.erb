@@ -1,2 +1,4 @@
 $('#class_display').append("<%= raw(escape_javascript render "slides/slide.html.erb", :slide => @slide) %>");
 $('.content_slide_<%=@slide.id%> .rest-in-place').restInPlace();
+$("#preview_frame")[0].contentDocument.location.reload(true);
+init_rip_change_bind(<%= @slide.id %>);

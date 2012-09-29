@@ -27,6 +27,8 @@
   <% @presentation.slides.each do |slide| %>
     <%= render :partial => "slides/slide_disp", :locals => {:slide => slide} %>
   <% end %>
+  <div id="overview" class="step" data-x="2000" data-y="3000" data-scale="10">
+  </div>
 </div>
 
 <div class="hint">
