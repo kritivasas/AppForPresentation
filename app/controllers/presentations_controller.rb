@@ -9,10 +9,12 @@ class PresentationsController < ApplicationController
   # GET /presentations/1
   # GET /presentations/1.json
   def show
+    Presentation.logger.debug "=====================show==================="
     @presentation_disp = Presentation.find_by_uid(params[:uid])
 
     respond_to do |format|
       format.html # show.html.erb
+      format.js
       format.json { render json: @presentation }
     end
   end
@@ -73,14 +75,11 @@ class PresentationsController < ApplicationController
   end
 
   def find
-    @presentation = Presentation.find_by_uid( params[:uid_search] )
-
+    Presentation.logger.debug "============================================"
+    @presentation_disp = Presentation.find_by_uid( params[:uid_search] )
     respond_to do |format|
-      if @presentation
-        format.html { redirect_to "/presentations/#{@presentation.uid}" }
-        format.json { render json: @presentation, status: :created, location: @presentation }
-      else
-        render :text => "404"
+      if @presentation_disp
+        format.js
       end
     end
   end
