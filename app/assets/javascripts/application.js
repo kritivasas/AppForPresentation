@@ -7,12 +7,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require impress 
-//= require jquery-ui-1.7.3.custom.min
 //= require rest_in_place 
+//jquery-ui-1.8.24
 //bootstrap.js
 //
-
-
 
 function update_prev(uid) {
   $.post("/update_slide_prev", { presentation_uid: uid },
@@ -29,9 +27,10 @@ function update_next(uid) {
 function runEffect() {
   // get effect type from 
   var selectedEffect = "drop";
-    
+  console.log("1");  
   // most effect types need no options passed by default
   var options = {};
+  console.log("2");
   // some effects have required parameters
   if ( selectedEffect === "scale" ) {
     options = { percent: 0 };
@@ -40,14 +39,19 @@ function runEffect() {
   } else if ( selectedEffect === "size" ) {
     options = { to: { width: 200, height: 60 } };
   }
+  console.log("3");
 
   // run the effect
-  $( "#content_body" ).effect( selectedEffect, options, 500, callback )
-};
+  $( "#content_body" ).effect( selectedEffect, options, 500, callback );
+  console.log("4");
+
+}
+
 function reverseEffect(){
   setTimeout(function() {
     $( "#content_body" ).removeAttr( "style" ).hide().fadeIn();
     $('#content_body')[0].style.marginTop = "50px";
   }, 1000);
-};
-function callback(){};
+}
+
+function callback(){}
