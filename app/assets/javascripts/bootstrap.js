@@ -19,7 +19,7 @@
 
 
 !function ($) {
-
+  console.log("declare");
   $(function () {
 
     "use strict"; // jshint ;_;
@@ -220,7 +220,7 @@
       if (!data) $this.data('button', (data = new Button(this, options)))
       if (option == 'toggle') data.toggle()
       else if (option) data.setState(option)
-    })
+    });
   }
 
   $.fn.button.defaults = {
@@ -2023,5 +2023,5 @@
     })
   })
 
-
+  console.log("end_declare");
 }(window.jQuery);
