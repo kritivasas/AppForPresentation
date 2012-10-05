@@ -17,7 +17,9 @@
   var timer = null;
   function auto_reload()
   {
-    $.ajax({ url:'<%=get_slide_url%>?presentation_uid='+window.presentation_uid});
+    var response_text = $.ajax({
+      url: "http://"+window.location.host + ':8000?presentation_uid=' + window.presentation_uid
+    }).response_text;
     setTimeout('auto_reload()',200);
   }
 </script>

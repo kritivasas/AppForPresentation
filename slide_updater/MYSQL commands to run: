@@ -1,0 +1,12 @@
+MYSQL commands to run:
+ON SHELL:
+ 1. rake db:create
+ 2. rake db:migrate RAILS_ENV=developement
+ 3. rake db:migrate RAILS_ENV=production
+ 4. rake db:migrate RAILS_ENV=test
+
+ON MYSQL PROMPT
+ 5. CREATE USER 'reading_user'@'localhost' IDENTIFIED BY '12345678';
+ 6. grant SELECT on presentations_production.slide_positions to reading_user;
+ 7. grant SELECT on presentations_development.slide_positions to reading_user;
+ 8. grant SELECT on presentations_test.slide_positions to reading_user;
