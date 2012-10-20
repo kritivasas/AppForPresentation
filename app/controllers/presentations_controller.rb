@@ -15,7 +15,7 @@ class PresentationsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.js
-      format.json { render json: @presentation }
+      format.json { render :json => @presentation }
     end
   end
 
@@ -26,7 +26,7 @@ class PresentationsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @presentation }
+      format.json { render :json => @presentation }
     end
   end
 
@@ -56,13 +56,13 @@ class PresentationsController < ApplicationController
     logger.debug @presentation_disp.inspect
     respond_to do |format|
       if @presentation_disp.save
-        format.html { redirect_to "/presentations/#{@presentation.uid}", notice: 'Presentation was successfully created. Please note down your uid for future' }
+        format.html { redirect_to "/presentations/#{@presentation.uid}", :notice => 'Presentation was successfully created. Please note down your uid for future' }
         format.js
-        format.json { render json: @presentation_disp, status: :created, location: @presentation_disp }
+        format.json { render :json => @presentation_disp, :status => :created, :location => @presentation_disp }
       else
-        format.html { render action: "new" }
+        format.html { render :action => "new" }
         format.js
-        format.json { render json: @presentation_disp.errors, status: :unprocessable_entity }
+        format.json { render :json => @presentation_disp.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -91,11 +91,11 @@ class PresentationsController < ApplicationController
 
     respond_to do |format|
       if @presentation.update_attributes(params[:presentation])
-        format.html { redirect_to @presentation, notice: 'Presentation was successfully updated.' }
+        format.html { redirect_to @presentation, :notice => 'Presentation was successfully updated.' }
         format.json { head :ok }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @presentation.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @presentation.errors, :status => :unprocessable_entity }
       end
     end
   end

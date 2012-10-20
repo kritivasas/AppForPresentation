@@ -7,7 +7,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require impress 
-//= require rest_in_place 
+//require rest_in_place 
 //jquery-ui-1.8.24
 //bootstrap.js
 //

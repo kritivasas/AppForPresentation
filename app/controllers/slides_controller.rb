@@ -6,7 +6,7 @@ class SlidesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @slides }
+      format.json { render :json => @slides }
     end
   end
 
@@ -17,7 +17,7 @@ class SlidesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @slide }
+      format.json { render :json => @slide }
     end
   end
 
@@ -28,7 +28,7 @@ class SlidesController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @slide }
+      format.json { render :json => @slide }
     end
   end
 
@@ -59,12 +59,12 @@ class SlidesController < ApplicationController
     @slide = Slide.find(params[:id])
     respond_to do |format|
       if @slide.update_attributes(params[:slide])
-        format.html { redirect_to @slide, notice: 'Slide was successfully updated.' }
+        format.html { redirect_to @slide, :notice => 'Slide was successfully updated.' }
         format.json { head :ok }
         format.js
       else
-        format.html { render action: "edit" }
-        format.json { render json: @slide.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @slide.errors, :status => :unprocessable_entity }
       end
     end
   end
